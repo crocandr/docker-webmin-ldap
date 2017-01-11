@@ -10,13 +10,13 @@ Not the best, but good option, and it has a web UI for easier management. :)
 ## Build
 
 ```
-docker build -t croc/webmin-ldap .
+docker build -t croc/webmin .
 ```
 
 ## Run
 
 ```
-docker run -tid --name=webmin-ldap -p 10000:10000 croc/webmin-ldap /opt/start.sh
+docker run -tid --name webmin -p 10000:10000 croc/webmin /opt/start.sh
 ```
 
 You can access Your webmin UI on the https://<your docker host IP>:10000 URL.
