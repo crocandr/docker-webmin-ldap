@@ -1,7 +1,7 @@
 FROM centos 
 
 # install basic packages and webmin requirements for LDAP management
-RUN yum install -y perl perl-Net-SSLeay openssl perl-LDAP perl-XML-Parser
+RUN yum install -y perl perl-Net-SSLeay openssl perl-LDAP perl-XML-Parser perl-Encode-Detect
 # download webmin
 RUN curl -L -o /opt/webmin.rpm http://prdownloads.sourceforge.net/webadmin/webmin-1.840-1.noarch.rpm && rpm -i /opt/webmin.rpm
 
