@@ -60,4 +60,20 @@ You have to configure the default webmin installation.
   6. you can see an empty list or your users and groups in your LDAP after this setup
 
 
+### Config Backup and Restore
+
+You should backup the `/etc/webmin/ldap-useradmin/config` from the webmin container. Example:
+```
+docker cp webmin:/etc/webmin/ldap-useradmin/config /backup/ldap-config
+```
+
+The restore process is reverse. Example:
+```
+docker cp /backup/ldap-config webmin:/etc/webmin/ldap-useradmin/config
+```
+
+You can backup and restore every used module like this.
+
+
+
 Good Luck!
