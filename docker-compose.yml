@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  webmin:
+    image: croc/webmin
+    volumes:
+      - './backup:/backup'
+    ports:
+      - '10000:10000'
+    stdin_open: yes
+    restart: always

@@ -13,10 +13,15 @@ Not the best, but good option, and it has a web UI for easier management. :)
 docker build -t croc/webmin .
 ```
 
+You can change the default webmin password at the build, example:
+```
+docker build -t croc/webmin --build-arg ROOT_PASS=myNewPass .
+```
+
 ## Run
 
 ```
-docker run -tid --name webmin -p 10000:10000 croc/webmin /opt/start.sh
+docker run -tid --name webmin -v $PWD/backup:/backup -p 10000:10000 croc/webmin
 ```
 
 You can access Your webmin UI on the https://<your docker host IP>:10000 URL.
@@ -61,6 +66,25 @@ You have to configure the default webmin installation.
 
 
 ### Config Backup and Restore
+
+
+#### Script method
+
+You can use backup script:
+```
+docker exec -ti webmin /opt/backup.sh
+```
+
+This script copies all files and folders from the `/etc/webmin` folder to the `/backup` folder.
+
+You can restore backed up configuration from the `/backup` folder to the `/etc/webmin` folder with this command:
+```
+docker exec -ti webmin /opt/restore.sh
+```
+But don't forget! You have to restart webmin container after the restore to update and reread config files. 
+
+
+#### Manual method
 
 You should backup the `/etc/webmin/ldap-useradmin/config` from the webmin container. Example:
 ```
