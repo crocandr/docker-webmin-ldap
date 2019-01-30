@@ -15,7 +15,7 @@ docker build -t croc/webmin .
 
 You can change the default webmin password at the build, example:
 ```
-docker build -t croc/webmin --build-arg ROOT_PASS=myNewPass .
+docker build -t croc/webmin --build-arg DEFAULT_PASS=myNewPass .
 ```
 
 ## Run
@@ -24,8 +24,14 @@ docker build -t croc/webmin --build-arg ROOT_PASS=myNewPass .
 docker run -tid --name webmin -v $PWD/backup:/backup -p 10000:10000 croc/webmin
 ```
 
+or with docker-compose:
+```
+docker-compose up -d
+```
+
 You can access Your webmin UI on the https://<your docker host IP>:10000 URL.
 Default login is: root / SuperSecret
+If you changed this default password, try login with your password.
 
 ## Config
 
