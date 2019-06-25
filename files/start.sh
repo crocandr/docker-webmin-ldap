@@ -10,4 +10,6 @@ echo $ROOT_PASSWORD | passwd root --stdin
 /etc/webmin/start || exit 1
 
 #
-tail -f /var/webmin/webmin.log || exit 1
+WEBMIN_LOG="/var/webmin/webmin.log"
+[ -f $WEBMIN_LOG ] && { tail -f /var/webmin/webmin.log || exit 1; }
+touch /tmp/empty.txt && tail -f /tmp/empty.txt || exit 1
