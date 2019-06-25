@@ -9,5 +9,4 @@ services:
       - './backup:/backup'
     ports:
       - '10000:10000'
-    stdin_open: yes
     restart: always
