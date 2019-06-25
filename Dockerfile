@@ -1,7 +1,7 @@
 FROM centos
 
 ARG DEFAULT_PASS=SuperSecret
-ARG WEBMIN_URL="http://prdownloads.sourceforge.net/webadmin/webmin-1.900-1.noarch.rpm"
+ARG WEBMIN_URL="https://prdownloads.sourceforge.net/webadmin/webmin-1.910-1.noarch.rpm"
 
 # install basic packages and webmin requirements for LDAP management
 RUN yum install -y net-tools perl perl-Net-SSLeay openssl perl-LDAP perl-XML-Parser perl-Encode-Detect openssh-clients
